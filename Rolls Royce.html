@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rolls-Royce - L'Art de la Performance et du Luxe</title>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000; 
+            color: #e6e6e6; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1f1f1f; 
+            color: #e6c27f; 
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            color: #e6c27f; 
+        }
+
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            background-color: transparent;
+            border: 2px solid #e6c27f; 
+            color: #e6c27f; 
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #e6c27f; 
+            color: #000; 
+            transform: scale(1.1); 
+            box-shadow: 0 5px 15px rgba(230, 194, 127, 0.5); 
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            color: #e6e6e6;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #e6c27f;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .car {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(230, 194, 127, 0.3);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .car img:hover {
+            opacity: 0.8;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #e6c27f;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .car h4 {
+            color: #e6e6e6;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .car ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .car ul li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8em;
+            }
+
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Rolls-Royce <img src="rolls royce /Rolls-Royce-Logo.png" width="100"  height="70"  alt="Logo Rolls-Royce"> </h1>
+            <nav>
+                <ul>
+                    <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+                    <li><a href="Nathan.Gillard.html">CV</a></li>
+                    <li>
+                        <a href="#">Models</a>
+                        <ul>
+                            <li>
+                                <a href="#">Italy <span>🇮🇹</span></a>
+                                <ul>
+                                    <li><a href="Ferrari.html">Ferrari</a></li>
+                                    <li><a href="page lamborghini .html">Lamborghini</a></li>
+                                    <li><a href="page Maserati.html">Maserati</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">German <span>🇩🇪</span></a>
+                                <ul>
+                                    <li><a href="audi.html">Audi</a></li>
+                                    <li><a href="Mercedes.html">Mercedes</a></li>
+                                    <li><a href="page Porsche.html">Porsche</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">UK <span>🇬🇧</span></a>
+                                <ul>
+                                    <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                                    <li><a href="Mclaren.html">McLaren</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">French <span>🇫🇷</span></a>
+                                <ul>
+                                    <li><a href="buggati.html">Buggati</a></li>
+                                    <li><a href="Alpine.html">Alpine</a></li>
+                                    <li><a href="Renault.html">Renault</a></li>
+                                </ul>
+                            </li>
+                        
+                            <li>
+                                <a href="#">USA <span>🇺🇸</span></a>
+                                <ul>
+                                    <li><a href="Dodge.html">Dodge</a></li>
+                                    <li><a href="chevrolet.html">Chevrolet</a></li>
+                                    <li><a href="ford.html">Ford</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Games</a>
+                        <ul>
+                            <li><a href="Jeux.html">Games1</a></li>
+                            <li><a href="jeux2.html">Games2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+    </header>
+
+<main>
+    <section id="rolls-royce">
+        <h2>Histoire de Rolls-Royce</h2>
+        <p>
+            Rolls-Royce incarne l'essence du luxe, de l'élégance et de la performance, grâce à une tradition d'excellence depuis 1906.
+        </p>
+    </section>
+
+    <section class="car-gallery">
+        <div class="car" id="phantom">
+            <h3>Rolls-Royce Phantom</h3>
+            <img src="rolls royce /Rolls-Royce_Phantom_V_Classic-Gala_2021_1X7A0015.jpg" alt="Rolls-Royce Phantom">
+            <p>Le Rolls-Royce Phantom est l'incarnation du luxe ultime, avec une performance inégalée et un intérieur somptueux.</p>
+        </div>
+
+        <div class="car" id="cullinan">
+            <h3>Rolls-Royce Cullinan</h3>
+            <img src="rolls royce /Rolls-Royce-Cullinan-900x600.webp" alt="Rolls-Royce Cullinan">
+            <p>Le Rolls-Royce Cullinan est le premier SUV de la marque, alliant puissance, confort et une technologie de conduite sans pareil.</p>
+        </div>
+
+        <div class="car" id="wraith">
+            <h3>Rolls-Royce Wraith</h3>
+            <img src="rolls royce /wraith.jpg" alt="Rolls-Royce Wraith">
+            <p>La Rolls-Royce Wraith est un coupé de grand luxe, combinant performance exceptionnelle et un intérieur digne des plus grandes œuvres d'art.</p>
+        </div>
+
+        <div class="car" id="ghost">
+            <h3>Rolls-Royce Ghost</h3>
+            <img src="rolls royce /rolls-royce-ghost-ii-v12-6-6-571-150374668.jpg" alt="Rolls-Royce Ghost">
+            <p>La Rolls-Royce Ghost est une berline de luxe, représentant le summum de la performance et du confort pour les conducteurs exigeants.</p>
+        </div>
+    </section>
+    <h2>Les Origines de Rolls-Royce</h2>
+<p>
+    Fondée en 1906 par Charles Rolls et Henry Royce à Manchester, Rolls-Royce est une marque qui incarne l'excellence et 
+    le luxe dans l'industrie automobile. L'objectif de Royce était de produire des voitures fiables, tandis que Rolls 
+    cherchait à offrir une expérience de conduite de premier ordre. Ensemble, ils ont créé des véhicules qui sont devenus 
+    synonymes de prestige et de qualité.
+</p>
+
+<div style="text-align: center;">
+    <img src="rolls royce /1906 2.jpg" width="400" height="300" alt="Rolls-Royce 1906">
+</div>
+
+<h2>L'Âge d'Or : Les Années 1920 et 1930</h2>
+<p>
+    Dans les années 1920 et 1930, Rolls-Royce a connu son âge d'or avec des modèles emblématiques tels que la Silver 
+    Ghost et la Phantom I. Ces voitures étaient considérées comme les meilleures au monde, offrant des performances 
+    exceptionnelles et un confort inégalé. La réputation de Rolls-Royce en matière de fiabilité et de raffinement s'est 
+    rapidement propagée à l'échelle mondiale.
+</p>
+
+<div style="text-align: center;">
+    <img src="rolls royce /1906.jpg" width="400" height="250" alt="Rolls-Royce Silver Ghost">
+</div>
+
+<section class="tech-section">
+    <h2>Technologie et Innovation</h2>
+    <p>
+        Rolls-Royce se distingue par son engagement constant envers l'innovation. Chaque voiture est le résultat d'une 
+        ingénierie de précision, combinée à des matériaux de qualité supérieure pour offrir une expérience de conduite 
+        inégalée.
+    </p>
+    <ul>
+        <li>Motorisation : Rolls-Royce utilise des moteurs V12 puissants et ultra-silencieux, offrant une performance 
+            exceptionnelle tout en garantissant une conduite fluide et confortable.</li>
+        <li>Système de suspension pneumatique : La suspension pneumatique réglable permet une conduite douce et stable, 
+            quelles que soient les conditions de la route.</li>
+        <li>Finitions sur mesure : Chaque véhicule Rolls-Royce est fabriqué à la main avec des matériaux de la plus haute 
+            qualité, y compris du cuir, du bois précieux et des métaux rares.</li>
+    </ul>
+</section>
+
+<h2>Les Modèles Récents</h2>
+<p>
+    Aujourd'hui, Rolls-Royce continue de produire des véhicules exceptionnels, tels que la Rolls-Royce Cullinan, un SUV 
+    de luxe, et la Rolls-Royce Phantom, une voiture berline ultraluxueuse. Ces modèles incarnent l'élégance et la 
+    performance, tout en continuant à repousser les limites de l'innovation et du design.
+</p>
+
+<div style="text-align: center;">
+    <img src="rolls royce /Rolls-Royce-Cullinan-900x600.webp" width="400" height="300" alt="Rolls-Royce Cullinan">
+</div>
+
+<h2>L'Héritage de Rolls-Royce</h2>
+<p>
+    Rolls-Royce n'est pas seulement une marque automobile, mais un symbole de statut, de prestige et de perfection. 
+    Avec plus de 100 ans d'histoire, la marque a su évoluer tout en préservant ses valeurs d'excellence. Chaque Rolls-Royce 
+    est une œuvre d'art, et chaque modèle produit continue de témoigner de l'héritage de Royce et Rolls.
+</p>
+</main>
+<footer>
+    <p>Nathan Gillard</p>
+</footer>
+</body>
+</html>
+
+
+

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez tout ce qu'il faut savoir sur les voitures de luxe : caractéristiques, marques, tendances du marché et plus encore.">
+    <title>Voitures de Luxe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+/* Reset des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style du corps de la page */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+    padding-top: 50px;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+/* Boutons */
+.btn-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-accueil {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.btn-accueil:hover {
+    background-color: #004080;
+}
+
+/* Section principale */
+section {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+/* Titre des sections */
+h2, h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 24px;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Disposition des voitures */
+.car-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Style des éléments de la galerie de voitures */
+.car-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.car-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #0056b3;
+}
+
+.car-item p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.car-details {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 2px solid #0056b3;
+}
+
+.car-details h4 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.car-details ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.car-details ul li {
+    margin-bottom: 8px;
+}
+
+ul li strong {
+    color: #0056b3;
+}
+
+ul li:hover {
+    color: #0056b3;
+    cursor: pointer;
+}
+
+/* Section de marques */
+.brand-section {
+    background-color: #f0f0f0;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Animation pour hovering sur les sections */
+.brand-section:hover {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .car-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-item {
+        padding: 10px;
+    }
+
+    .car-item img {
+        height: 180px;
+    }
+
+    .btn-accueil {
+        font-size: 14px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    .car-details h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .car-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .car-item img {
+        height: 150px;
+    }
+
+    .car-details ul li {
+        font-size: 14px;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+
+    .btn-accueil {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Les Voitures Américaines</h1>
+        <p>Découvrez la puissance, le design et l'histoire des voitures les plus iconiques des États-Unis.</p>
+    </header>
+
+     <!-- Ajout du bouton pour retourner à l'accueil -->
+     <div class="btn-container" style="text-align: center;">
+        <a href="Acceuil_voiture.html" class="btn-accueil">Retour à l'accueil</a>
+        <a href="porshe.html" class="btn-accueil">Porsche</a>
+    </div>
+
+    <section>
+        <h2>Les Grandes Marques Américaines</h2>
+
+ <!-- Ford Mustang -->
+ <div class="brand-section">
+    <h3>Ford Mustang</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="ford-mustang.jpg" alt="Ford Mustang">
+            <p>Ford Mustang Shelby GT500</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 26 CV</li>
+                    <li>Poids : 1 800 kg</li>
+                    <li>Vitesse max : 290 km/h</li>
+                    <li>Prix : 70 000 €</li>
+                    <li>Type de moteur : V8 Supercharged</li>
+                    <li>Accélération (0-100 km/h) : 3,4 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chevrolet Corvette -->
+<div class="brand-section">
+    <h3>Chevrolet Corvette</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="chevrolet-corvette.jpg" alt="Chevrolet Corvette">
+            <p>Chevrolet Corvette Stingray</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 28 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 315 km/h</li>
+                    <li>Prix : 80 000 €</li>
+                    <li>Type de moteur : V8</li>
+                    <li>Accélération (0-100 km/h) : 3,0 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dodge Viper -->
+<div class="brand-section">
+    <h3>Dodge Viper</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="dodge-viper.jpg" alt="Dodge Viper">
+            <p>Dodge Viper GTS</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 32 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 330 km/h</li>
+                    <li>Prix : 90 000 €</li>
+                    <li>Type de moteur : V10</li>
+                    <li>Accélération (0-100 km/h) : 3,5 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tesla Roadster -->
+<div class="brand-section">
+    <h3>Tesla Roadster</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="tesla-roadster.jpg" alt="Tesla Roadster">
+            <p>Tesla Roadster 2024</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 20 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 400 km/h</li>
+                    <li>Prix : 200 000 €</li>
+                    <li>Type de moteur : Électrique</li>
+                    <li>Accélération (0-100 km/h) : 1,9 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cadillac CTS-V -->
+<div class="brand-section">
+    <h3>Cadillac CTS-V</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="cadillac-cts-v.jpg" alt="Cadillac CTS-V">
+            <p>Cadillac CTS-V</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 30 CV</li>
+                    <li>Poids : 1 900 kg</li>
+                    <li>Vitesse max : 320 km/h</li>
+                    <li>Prix : 85 000 €</li>
+                    <li>Type de moteur : V8 Supercharged</li>
+                    <li>Accélération (0-100 km/h) : 3,7 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Buick Grand National -->
+<div class="brand-section">
+    <h3>Buick Grand National</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="buick-grand-national.jpg" alt="Buick Grand National">
+            <p>Buick Grand National GNX</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 23 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 250 km/h</li>
+                    <li>Prix : 50 000 €</li>
+                    <li>Type de moteur : V6 Turbo</li>
+                    <li>Accélération (0-100 km/h) : 5,0 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jeep Grand Cherokee SRT -->
+<div class="brand-section">
+    <h3>Jeep Grand Cherokee SRT</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="jeep-grand-cherokee.jpg" alt="Jeep Grand Cherokee SRT">
+            <p>Jeep Grand Cherokee SRT</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 27 CV</li>
+                    <li>Poids : 2 300 kg</li>
+                    <li>Vitesse max : 280 km/h</li>
+                    <li>Prix : 70 000 €</li>
+                    <li>Type de moteur : V8 HEMI</li>
+                    <li>Accélération (0-100 km/h) : 4,4 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section class="car-section">
+<!-- Ford Mustang -->
+<div class="brand-section">
+    <h3>Ford Mustang</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="ford-mustang.jpg" alt="Ford Mustang">
+            <p>Ford Mustang Shelby GT500</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 26 CV</li>
+                    <li>Poids : 1 800 kg</li>
+                    <li>Vitesse max : 290 km/h</li>
+                    <li>Prix : 70 000 €</li>
+                    <li>Type de moteur : V8 Supercharged</li>
+                    <li>Accélération (0-100 km/h) : 3,4 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chevrolet Corvette -->
+<div class="brand-section">
+    <h3>Chevrolet Corvette</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="chevrolet-corvette.jpg" alt="Chevrolet Corvette">
+            <p>Chevrolet Corvette Stingray</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 28 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 315 km/h</li>
+                    <li>Prix : 80 000 €</li>
+                    <li>Type de moteur : V8</li>
+                    <li>Accélération (0-100 km/h) : 3,0 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dodge Viper -->
+<div class="brand-section">
+    <h3>Dodge Viper</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="dodge-viper.jpg" alt="Dodge Viper">
+            <p>Dodge Viper GTS</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 32 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 330 km/h</li>
+                    <li>Prix : 90 000 €</li>
+                    <li>Type de moteur : V10</li>
+                    <li>Accélération (0-100 km/h) : 3,5 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tesla Roadster -->
+<div class="brand-section">
+    <h3>Tesla Roadster</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="tesla-roadster.jpg" alt="Tesla Roadster">
+            <p>Tesla Roadster 2024</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 20 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 400 km/h</li>
+                    <li>Prix : 200 000 €</li>
+                    <li>Type de moteur : Électrique</li>
+                    <li>Accélération (0-100 km/h) : 1,9 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cadillac CTS-V -->
+<div class="brand-section">
+    <h3>Cadillac CTS-V</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="cadillac-cts-v.jpg" alt="Cadillac CTS-V">
+            <p>Cadillac CTS-V</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 30 CV</li>
+                    <li>Poids : 1 900 kg</li>
+                    <li>Vitesse max : 320 km/h</li>
+                    <li>Prix : 85 000 €</li>
+                    <li>Type de moteur : V8 Supercharged</li>
+                    <li>Accélération (0-100 km/h) : 3,7 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Buick Grand National -->
+<div class="brand-section">
+    <h3>Buick Grand National</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="buick-grand-national.jpg" alt="Buick Grand National">
+            <p>Buick Grand National GNX</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 23 CV</li>
+                    <li>Poids : 1 500 kg</li>
+                    <li>Vitesse max : 250 km/h</li>
+                    <li>Prix : 50 000 €</li>
+                    <li>Type de moteur : V6 Turbo</li>
+                    <li>Accélération (0-100 km/h) : 5,0 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jeep Grand Cherokee SRT -->
+<div class="brand-section">
+    <h3>Jeep Grand Cherokee SRT</h3>
+    <div class="car-gallery">
+        <div class="car-item">
+            <img src="jeep-grand-cherokee.jpg" alt="Jeep Grand Cherokee SRT">
+            <p>Jeep Grand Cherokee SRT</p>
+            <div class="car-details">
+                <h4>Caractéristiques :</h4>
+                <ul>
+                    <li>Puissance fiscale : 27 CV</li>
+                    <li>Poids : 2 300 kg</li>
+                    <li>Vitesse max : 280 km/h</li>
+                    <li>Prix : 70 000 €</li>
+                    <li>Type de moteur : V8 HEMI</li>
+                    <li>Accélération (0-100 km/h) : 4,4 s</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2024 Voitures Américaines Sportives | Tous droits réservés</p>
+</footer>
+</body>
+</html>

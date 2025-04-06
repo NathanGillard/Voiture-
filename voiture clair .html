@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voitures</title>
+  <style>
+    /* Style global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* En-tête */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .nav-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Conteneur des voitures */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .car {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .car:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .car img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    /* Pied de page */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+      <a href="Nathan.Gillard.html" class="nav-button">Accueil</a>
+      <a href="voiture demon .html" class="nav-button">Demon</a>
+    </nav>
+    <h1>Voitures Iconiques</h1>
+    <p>Découvrez des voitures de légende qui ont marqué l'histoire de l'automobile.</p>
+  </header>
+
+  <main class="container">
+    <section class="car">
+      <img src="Ferrari/F40_Ferrari_20090509.jpg" alt="Ferrari F40">
+      <h2>Ferrari F40</h2>
+      <p>La Ferrari F40 est une icône des années 80, célèbre pour ses performances brutales et son design intemporel.</p>
+    </section>
+
+    <section class="car">
+      <img src="Ferrari/ferrari-812-superfast3_2.jpg" alt="Ferrari F12">
+      <h2>Ferrari F12 Berlinetta</h2>
+      <p>La F12 Berlinetta offre une combinaison parfaite de puissance et d'élégance, avec son moteur V12 atmosphérique.</p>
+    </section>
+
+    <section class="car">
+      <img src="Lamborghini/lamborghini-aventador.jpg" alt="Lamborghini Aventador">
+      <h2>Lamborghini Aventador</h2>
+      <p>Avec ses lignes agressives et son moteur V12, la Lamborghini Aventador incarne l'esprit de la supercar moderne.</p>
+    </section>
+  </main>
+</body>
+</html>

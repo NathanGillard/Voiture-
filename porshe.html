@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les voitures de luxe Porsche : modèles iconiques, performances, caractéristiques et plus encore.">
+    <title>Voitures Porsche</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style général du corps de la page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Mise en page du footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Section des voitures */
+        .car-section, .brand-section {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 10px;
+        }
+
+        /* Titre de chaque section */
+        h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #0056b3;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Galerie de voitures avec mise en page en grille */
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        /* Style de chaque voiture */
+        .car-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image des voitures */
+        .car-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #0056b3;
+        }
+
+        /* Texte sous l'image */
+        .car-item p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Détails de la voiture */
+        .car-details {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #0056b3;
+        }
+
+        /* Titre des caractéristiques */
+        .car-details h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        /* Liste des caractéristiques */
+        .car-details ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .car-details ul li {
+            padding: 5px 0;
+        }
+
+        /* Style des liens et textes importants */
+        ul li strong {
+            color: #0056b3;
+        }
+
+        /* Effet de survol sur les éléments de la liste */
+        ul li:hover {
+            color: #0056b3;
+            cursor: pointer;
+        }
+
+        /* Ajout d'un fond à chaque section de marque */
+        .brand-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Style des titres de sections */
+        .brand-section h3 {
+            font-size: 24px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Style du footer */
+        footer p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive pour les petits écrans */
+        @media (max-width: 768px) {
+            .car-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .car-item {
+                padding: 10px;
+            }
+
+            .car-item img {
+                height: 150px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            .car-details h4 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .car-item img {
+                height: 120px;
+            }
+
+            .car-details ul li {
+                font-size: 14px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+        }
+
+        /* Style du bouton retour */
+        .btn-accueil {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+
+        .btn-accueil:hover {
+            background-color: #004080;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Les Voitures Porsche</h1>
+        <p>Découvrez la performance et le raffinement des voitures Porsche : modèles iconiques et informations détaillées.</p>
+    </header>
+
+    <!-- Ajout du bouton pour retourner à l'accueil -->
+    <div class="btn-container" style="text-align: center;">
+        <a href="Acceuil_voiture.html" class="btn-accueil">Retour à l'accueil</a>
+    </div>
+
+    <section>
+        <h2>Les Grandes Marques Porsche</h2>
+
+        <!-- Porsche 911 -->
+        <div class="brand-section">
+            <h3>Porsche 911</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-911.jpg" alt="Porsche 911">
+                    <p>Porsche 911 Turbo S</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 50 CV</li>
+                            <li>Poids : 1 650 kg</li>
+                            <li>Vitesse max : 330 km/h</li>
+                            <li>Prix : 180 000 €</li>
+                            <li>Type de moteur : 6 cylindres bi-turbo</li>
+                            <li>Accélération (0-100 km/h) : 2,7 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche 718 Cayman -->
+        <div class="brand-section">
+            <h3>Porsche 718 Cayman</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-718-cayman.jpg" alt="Porsche 718 Cayman">
+                    <p>Porsche 718 Cayman GTS</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 40 CV</li>
+                            <li>Poids : 1 400 kg</li>
+                            <li>Vitesse max : 290 km/h</li>
+                            <li>Prix : 85 000 €</li>
+                            <li>Type de moteur : 4 cylindres turbo</li>
+                            <li>Accélération (0-100 km/h) : 4,0 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche Taycan -->
+        <div class="brand-section">
+            <h3>Porsche Taycan</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-taycan.jpg" alt="Porsche Taycan">
+                    <p>Porsche Taycan Turbo S</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 40 CV</li>
+                            <li>Poids : 2 300 kg</li>
+                            <li>Vitesse max : 260 km/h</li>
+                            <li>Prix : 150 000 €</li>
+                            <li>Type de moteur : Électrique</li>
+                            <li>Accélération (0-100 km/h) : 2,8 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche Panamera -->
+        <div class="brand-section">
+            <h3>Porsche Panamera</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-panamera.jpg" alt="Porsche Panamera">
+                    <p>Porsche Panamera 4S</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 50 CV</li>
+                            <li>Poids : 1 950 kg</li>
+                            <li>Vitesse max : 285 km/h</li>
+                            <li>Prix : 110 000 €</li>
+                            <li>Type de moteur : V6 bi-turbo</li>
+                            <li>Accélération (0-100 km/h) : 3,9 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche Macan -->
+        <div class="brand-section">
+            <h3>Porsche Macan</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-macan.jpg" alt="Porsche Macan">
+                    <p>Porsche Macan GTS</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 45 CV</li>
+                            <li>Poids : 1 800 kg</li>
+                            <li>Vitesse max : 265 km/h</li>
+                            <li>Prix : 70 000 €</li>
+                            <li>Type de moteur : V6 turbo</li>
+                            <li>Accélération (0-100 km/h) : 4,3 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche 918 Spyder -->
+        <div class="brand-section">
+            <h3>Porsche 918 Spyder</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-918-spyder.jpg" alt="Porsche 918 Spyder">
+                    <p>Porsche 918 Spyder</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 65 CV</li>
+                            <li>Poids : 1 700 kg</li>
+                            <li>Vitesse max : 340 km/h</li>
+                            <li>Prix : 800 000 €</li>
+                            <li>Type de moteur : Hybride</li>
+                            <li>Accélération (0-100 km/h) : 2,6 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Porsche Cayenne -->
+        <div class="brand-section">
+            <h3>Porsche Cayenne</h3>
+            <div class="car-gallery">
+                <div class="car-item">
+                    <img src="porsche-cayenne.jpg" alt="Porsche Cayenne">
+                    <p>Porsche Cayenne Turbo</p>
+                    <div class="car-details">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Puissance fiscale : 55 CV</li>
+                            <li>Poids : 2 100 kg</li>
+                            <li>Vitesse max : 300 km/h</li>
+                            <li>Prix : 110 000 €</li>
+                            <li>Type de moteur : V8 bi-turbo</li>
+                            <li>Accélération (0-100 km/h) : 3,9 s</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Porsche. Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>

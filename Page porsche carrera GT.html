@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Carrera GT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: headerFadeIn 2s ease-in-out;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #000000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            border: 2px solid #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .back-button a:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #262626;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            animation: containerSlideUp 1.5s ease-out;
+        }
+        h1, h2 {
+            color: #ff0000;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h2 {
+            margin-top: 20px;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        .specs {
+            margin-top: 20px;
+        }
+        .specs ul {
+            list-style: none;
+            padding: 0;
+        }
+        .specs ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333333;
+            border-left: 4px solid #ffffff;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .specs ul li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        @keyframes headerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes containerSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #000000;
+            color: #cccccc;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="page Porsche.html">Retour à l'Accueil</a>
+    </div>
+    <header>
+        Porsche Carrera GT
+    </header>
+    <div class="container">
+        <h2>Présentation</h2>
+        <p>La Porsche Carrera GT est un supercar emblématique, sortie au début des années 2000, qui allie performance extrême et technologie de pointe. Conçu pour offrir une expérience de conduite pure, la Carrera GT a un moteur V10 atmosphérique, un design inspirant et une dynamique qui défie les limites. Véritable chef-d'œuvre de Porsche, elle est considérée comme l'une des voitures les plus raffinées jamais produites par la marque.</p>
+
+        <h2>Fiche technique</h2>
+        <div class="specs">
+            <ul>
+                <li><strong>Moteur :</strong> V10 5,7 litres atmosphérique</li>
+                <li><strong>Puissance :</strong> 612 chevaux</li>
+                <li><strong>Couple :</strong> 590 Nm</li>
+                <li><strong>Vitesse maximale :</strong> 330 km/h</li>
+                <li><strong>0-100 km/h :</strong> 3,9 secondes</li>
+                <li><strong>Transmission :</strong> Propulsion avec boîte manuelle 6 rapports</li>
+                <li><strong>Technologies :</strong> Carrosserie en fibre de carbone, suspension indépendante, freinage céramique</li>
+            </ul>
+        </div>
+
+        <h2>Vidéo</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/cjd8-50JnKE?si=Uw9Zy0BenKY23jSX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+    </div>
+    <footer>
+        &copy; 2025 Porsche Enthusiasts - Tous droits réservés
+    </footer>
+</body>
+</html>

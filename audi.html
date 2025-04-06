@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audi - Luxe et Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000;
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+       
+        header {
+            background-color: #111;
+            color: #ff0000; 
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff0000;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+       
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            background-color: transparent;
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #ff0000;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+   
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #111;
+            border-radius: 10px;
+            border: 2px solid #ff0000;
+            color: #fff;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .car {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(255, 0, 0, 0.5);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .car img:hover {
+            opacity: 0.8;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #ff0000;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+      
+        footer {
+            background-color: #111;
+            color: #ff0000;
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid #ff0000;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Audi  <img src="Audi/Audi-logo-1920x1080-grand.png" width="100"  height="70"  alt="Logo Audi"> </h1>
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Les Voitures Audi</h2>
+        <p>
+            Audi incarne l'innovation, le luxe et la performance. Découvrez ses modèles, fusionnant technologie de pointe et design raffiné.
+        </p>
+    </section>
+
+    <h2>Modèles Emblématiques</h2>
+    <section class="car-gallery">
+        
+        <div class="car">
+            <h3>Audi A8</h3>
+            <img src="Audi/Audi-A8-TFSI7.jpg" alt="Audi A8">
+         <a href="page audi A8.html">   <p>Le modèle phare d'Audi, alliant luxe, technologie avancée et performances exceptionnelles.</p></a>
+            <ul>
+                <li>Moteur : V6 ou V8</li>
+                <li>Puissance : Jusqu'à 500 ch</li>
+                <li>Vitesse maximale : 250 km/h</li>
+                <li>Accélération 0-100 km/h : 4.2 sec</li>
+            </ul>
+        </div>
+
+        
+        <div class="car">
+            <h3>Audi Q7</h3>
+         <a href="Audi Q7.html">   <img src="Audi/audi q7.jpeg" alt="Audi Q7"></a>
+            <p>Le SUV de luxe Audi qui combine confort, espace et technologie haut de gamme.</p>
+            <ul>
+                <li>Moteur : V6 TDI ou V6 TFSI</li>
+                <li>Puissance : Jusqu'à 335 ch</li>
+                <li>Vitesse maximale : 250 km/h</li>
+                <li>Accélération 0-100 km/h : 6.3 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Audi RS7</h3>
+         <a href="Page audi rs7.html">   <img src="Audi/audi-rs7-by-abt.jpg" alt="Audi RS7"></a>
+            <p>Une voiture sport de luxe, alliant des performances incroyables et un design exceptionnel.</p>
+            <ul>
+                <li>Moteur : V8 Biturbo 4.0 L</li>
+                <li>Puissance : 591 ch</li>
+                <li>Vitesse maximale : 305 km/h</li>
+                <li>Accélération 0-100 km/h : 3.6 sec</li>
+            </ul>
+        </div>
+
+        
+        <div class="car">
+            <h3>Audi R8</h3>
+         <a href="Page audi R8.html">   <img src="Audi/audi R8.jpg" alt="Audi R8"></a>
+            <p>Supercar de luxe, la R8 combine puissance, agilité et un design époustouflant.</p>
+            <ul>
+                <li>Moteur : V10 5.2 L</li>
+                <li>Puissance : 602 ch</li>
+                <li>Vitesse maximale : 330 km/h</li>
+                <li>Accélération 0-100 km/h : 3.1 sec</li>
+            </ul>
+        </div>
+
+<div class="car">
+<h3>Audi Q8</h3>
+ <a href="Page audi Q8.html">   <img src="Audi/audi-q8-e-tron-front-view.webp" alt="Audi Q8"></a>
+<p>Le SUV haut de gamme Audi, avec un design audacieux et une performance impressionnante.</p>
+<h4>Caractéristiques</h4>
+<ul>
+    <li>Moteur : V6 TFSI ou V8 TDI</li>
+    <li>Puissance : Jusqu'à 600 ch</li>
+    <li>Vitesse maximale : 250 km/h</li>
+    <li>Accélération 0-100 km/h : 5.6 secondes</li>
+</ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi S6</h3>
+    <a href="Page audi S6.html">   <img src="Audi/audi-s6-avant-v6-tdi.png" alt="Audi S6"></a>
+<p>La berline sportive qui combine luxe et performances exceptionnelles.</p>
+<h4>Caractéristiques</h4>
+<ul>
+    <li>Moteur : V6 Biturbo 2.9 L</li>
+    <li>Puissance : 450 ch</li>
+    <li>Vitesse maximale : 250 km/h</li>
+    <li>Accélération 0-100 km/h : 4.4 secondes</li>
+</ul>
+</div>
+
+
+<div class="car">
+<h3>Audi TT</h3>
+ <a href="Page audi tt.html">  <img src="Audi/2024-audi-tt-special-edition-for-spain.webp" alt="Audi TT"></a>
+<p>Une petite sportive avec un design iconique et une dynamique de conduite incomparable.</p>
+<h4>Caractéristiques</h4>
+<ul>
+    <li>Moteur : 2.0 L TFSI</li>
+    <li>Puissance : 230 ch</li>
+    <li>Vitesse maximale : 250 km/h</li>
+    <li>Accélération 0-100 km/h : 5.3 secondes</li>
+</ul>
+</div>
+
+
+<div class="car">
+<h3>Audi S3</h3>
+ <a href="Page audi S3.html">  <img src="Audi/audi-s3-sedan-back-view.jpg" alt="Audi S3"></a>
+<p>Sportive compacte avec une puissance de performance étonnante et un design élégant.</p>
+<h4>Caractéristiques</h4>
+<ul>
+    <li>Moteur : 2.0 L TFSI</li>
+    <li>Puissance : 310 ch</li>
+    <li>Vitesse maximale : 250 km/h</li>
+    <li>Accélération 0-100 km/h : 4.8 secondes</li>
+</ul>
+</div>
+
+<div class="car">
+    <h3>Audi RS6</h3>
+      <a href="Page audi RS6.html">  <img src="Audi/RS6" alt="Audi RS6"></a>
+    <p>Un break de performance extrême, combinant puissance, luxe et agilité pour une conduite inégalée.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : V8 Biturbo 4.0 L</li>
+        <li>Puissance : 600 ch</li>
+        <li>Vitesse maximale : 305 km/h</li>
+        <li>Accélération 0-100 km/h : 3.5 secondes</li>
+    </ul>
+</div>
+
+<div class="car">
+    <h3>Audi RS3</h3>
+     <a href="page audi RS3.html">   <img src="Audi/RS3" alt="Audi RS3"></a>
+    <p>Une compacte sportive ultra-performante qui combine puissance et agilité.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : 5 cylindres 2.5 L</li>
+        <li>Puissance : 400 ch</li>
+        <li>Vitesse maximale : 280 km/h</li>
+        <li>Accélération 0-100 km/h : 3.8 secondes</li>
+    </ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi RS4</h3>
+     <a href="Page audi RS4.html">   <img src="Audi/RS4.jpg" alt="Audi RS4"></a>
+    <p>Une berline haute performance qui combine luxe et sportivité avec un design exceptionnel.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : V6 Biturbo 2.9 L</li>
+        <li>Puissance : 450 ch</li>
+        <li>Vitesse maximale : 280 km/h</li>
+        <li>Accélération 0-100 km/h : 4.1 secondes</li>
+    </ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi RS5</h3>
+     <a href="Page audi RS5.html">  <img src="Audi/RS5.jpeg" alt="Audi RS5"></a>
+    <p>Un coupé haute performance, avec une puissance phénoménale et un design agressif.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : V6 Biturbo 2.9 L</li>
+        <li>Puissance : 450 ch</li>
+        <li>Vitesse maximale : 280 km/h</li>
+        <li>Accélération 0-100 km/h : 3.9 secondes</li>
+    </ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi RS Q7</h3>
+     <a href="Page audi RSQ7.html">  <img src="Audi/RSQ7.jpg" alt="Audi RS Q7"></a> 
+    <p>Un SUV sportif, alliant performance brute et luxe raffiné.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : V8 Biturbo 4.0 L</li>
+        <li>Puissance : 600 ch</li>
+        <li>Vitesse maximale : 250 km/h</li>
+        <li>Accélération 0-100 km/h : 3.8 secondes</li>
+    </ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi e-tron</h3>
+     <a href="page audi etron.html">  <img src="Audi/Audi etron.jpg" alt="Audi e-tron"></a> 
+    <p>Un SUV entièrement électrique, combinant performance et technologies avancées.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : Moteurs électriques à double propulsion</li>
+        <li>Puissance : Jusqu'à 400 ch</li>
+        <li>Vitesse maximale : 200 km/h</li>
+        <li>Autonomie : Jusqu'à 400 km (selon la version)</li>
+    </ul>
+</div>
+
+
+<div class="car">
+    <h3>Audi RS Q5</h3>
+     <a href="Page audi RSQ5.html">   <img src="Audi/RSQ5.webp" alt="Audi RS Q5"></a>
+    <p>Un SUV dynamique avec un moteur puissant et une conduite agile.</p>
+    <h4>Caractéristiques</h4>
+    <ul>
+        <li>Moteur : V6 TFSI Biturbo 2.9 L</li>
+        <li>Puissance : 450 ch</li>
+        <li>Vitesse maximale : 250 km/h</li>
+        <li>Accélération 0-100 km/h : 4.5 secondes</li>
+    </ul>
+</div>
+
+
+</section>
+
+<section class="tech-section">
+    <h2>Les Origines d'Audi</h2>
+    <p>
+        Audi a été fondée en 1909 par August Horch, un ingénieur automobile allemand. Après des différends avec son ancienne société, Horch a fondé Audi, qui signifie "écouter" en latin, en référence à son nom de famille, qui signifie "écouter" en allemand. Audi a rapidement acquis une réputation pour ses véhicules innovants et ses performances exceptionnelles.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Audi/1 ere.jpg" width="400" height="300" alt="Audi Horch 853 Roadster">
+    </div>
+    
+    <h2>L'Âge d'Or : Les Années 1960 et 1970</h2>
+    <p>
+        Audi a connu une période de renouveau dans les années 1960 et 1970 avec la production de voitures emblématiques telles que l'Audi 100, qui a marqué le début d'une nouvelle ère pour la marque. Audi a aussi révolutionné l'industrie automobile avec l'Audi Quattro, le premier véhicule de production à posséder une transmission intégrale permanente, un tournant pour les voitures de sport.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Audi/1-9.jpg" width="400" height="300" alt="Audi 100">
+    </div>
+    
+    <section class="tech-section">
+        <h2>Technologie et Innovation</h2>
+        <p>
+            Audi est une marque qui se distingue par ses innovations technologiques dans le domaine de l'automobile, offrant des véhicules de haute performance et confort. L'engagement d'Audi envers l'innovation est reflété dans ses modèles modernes.
+        </p>
+        <ul>
+            <li>Technologie moteur : Audi utilise des moteurs TFSI et TDI à la pointe de la technologie, offrant des performances exceptionnelles et une consommation réduite.</li>
+            <li>Quattro : Le système de transmission intégrale Quattro d'Audi a révolutionné la conduite en offrant une meilleure traction et stabilité sur toutes les surfaces.</li>
+            <li>Technologies de conduite autonome : Audi investit massivement dans les technologies de conduite autonome, avec des systèmes comme le pilotage automatique et les systèmes d'assistance à la conduite.</li>
+        </ul>
+    </section>
+    
+    <h2>Les Modèles Récents</h2>
+    <p>
+        Aujourd'hui, Audi continue d'innover avec des modèles comme l'Audi A8, un véhicule de luxe avec des technologies avancées, et l'Audi R8, une supercar qui allie puissance et design. Audi propose également des modèles électriques comme l'Audi e-tron, qui représente l'avenir de la mobilité durable.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Audi/audi R8.jpg" width="400" height="300" alt="Audi R8 V10">
+    </div>
+    
+    <h2>L'Héritage d'Audi</h2>
+    <p>
+        Audi incarne l'innovation, le luxe et la performance. Depuis sa création, la marque a su s'imposer comme l'un des leaders mondiaux de l'industrie automobile, avec une forte identité fondée sur la qualité, la technologie et le design. Audi continue de fasciner les amateurs de voitures et les passionnés de technologies de demain.
+    </p>
+    
+</section>
+</main>
+<footer>
+    <p>Nathan Gillard</p>
+</footer>
+</body>
+</html>

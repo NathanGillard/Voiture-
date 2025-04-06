@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Porsche - L'Émotion et la Performance</title>
+    <style>
+      
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000; 
+            color: #eaeaea; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        
+        header {
+            background-color: #1c1c1c; 
+            color: #e30613; 
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #e30613;
+        }
+
+       
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            background-color: transparent;
+            border: 2px solid #e30613; 
+            color: #e30613;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #e30613;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+  
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            color: #eaeaea;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #e30613;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+   
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .car {
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(227, 6, 19, 0.5);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .car img:hover {
+            opacity: 0.8;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #e30613;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .car ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .car ul li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8em;
+            }
+
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Porsche  
+     <img src="porsche /porsche-logo-0.png" width="200"  height="150"  alt="Logo Porsche"> 
+    </h1>
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Les Voitures Porsche</h2>
+        <p>
+            Porsche, synonyme de performance et d'émotion, propose des véhicules qui combinent élégance intemporelle et technologie de pointe.
+        </p>
+    </section>
+
+    <h2>Modèles Emblématiques</h2>
+
+    <section class="car-gallery">
+    
+        <div class="car">
+            <h3>Porsche Taycan</h3>
+         <a href="page porsche taycan .html"> <img src="porsche /porsche taycan .jpg" alt="Porsche Taycan"></a>
+            <p>La première Porsche 100% électrique. Puissance et technologie en un.</p>
+            <ul>
+                <li>Puissance : Jusqu'à 761 ch</li>
+                <li>Autonomie : 450 km</li>
+                <li>Accélération 0-100 km/h : 2,8 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche 718 Cayman</h3>
+         <a href="page porsche 718 cayman.html"> <img src="porsche /Porsche 718 cayman.jpg" alt="Porsche 718 Cayman"></a>  
+            <p>Un coupé léger et agile, parfait pour les puristes de la conduite.</p>
+            <ul>
+                <li>Moteur : 4 cylindres à plat</li>
+                <li>Puissance : Jusqu'à 420 ch</li>
+                <li>Accélération 0-100 km/h : 4,4 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche Panamera</h3>
+         <a href="page porsche panamera.html">   <img src="porsche /Porsche panamera.avif" alt="Porsche Panamera"></a>
+            <p>Une berline sportive combinant luxe et performance.</p>
+            <ul>
+                <li>Moteur : V6 et V8, hybride disponible</li>
+                <li>Puissance : Jusqu'à 680 ch</li>
+                <li>Accélération 0-100 km/h : 3,4 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche Macan</h3>
+         <a href="page porsche macan.html">   <img src="porsche /Porsche macan.jpg" alt="Porsche Macan"></a>
+            <p>Un SUV compact qui incarne la sportivité et la polyvalence.</p>
+            <ul>
+                <li>Moteur : V6 turbo</li>
+                <li>Puissance : Jusqu'à 440 ch</li>
+                <li>Accélération 0-100 km/h : 4,3 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche Carrera GT</h3>
+         <a href="Page porsche carrera GT.html">   <img src="porsche /Porsche-Carrera-GT.jpg" alt="Porsche Carrera GT"></a>
+            <p>Une supercar légendaire avec un moteur V10, conçue pour des performances ultimes.</p>
+            <ul>
+                <li>Moteur : V10 atmosphérique</li>
+                <li>Puissance : 612 ch</li>
+                <li>Accélération 0-100 km/h : 3,9 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche 918 Spyder</h3>
+         <a href="page porsche 918 spyder .html">  <img src="porsche /Porsche-918-Spyder-2.jpg.webp" alt="Porsche 918 Spyder"></a>
+            <p>Un hybride plug-in hyper-sportif avec une puissance combinée incroyable.</p>
+            <ul>
+                <li>Moteur : V8 + moteurs électriques</li>
+                <li>Puissance : 887 ch</li>
+                <li>Accélération 0-100 km/h : 2,6 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche 911 Turbo S</h3>
+         <a href="page porsche 911 turbo S.html">  <img src="porsche /porsche 911 turbo S.webp" alt="Porsche 911 Turbo S"></a>
+            <p>La version haute performance de la 911, alliant puissance et précision.</p>
+            <ul>
+                <li>Moteur : 6 cylindres biturbo</li>
+                <li>Puissance : 640 ch</li>
+                <li>Accélération 0-100 km/h : 2,7 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Porsche 718 Boxster</h3>
+         <a href="page Porsche 718 boxster.html">   <img src="porsche /porsche boxster .jpg" alt="718 Boxter"></a>
+            <p>Un roadster agile et performant, parfait pour les passionnés de conduite en plein air.</p>
+            <ul>
+                <li>Moteur : 4 cylindres à plat</li>
+                <li>Puissance : Jusqu'à 420 ch</li>
+                <li>Accélération 0-100 km/h : 4,2 sec</li>
+            </ul>
+        </div>
+    
+        <div class="car">
+            <h3>Porsche Cayenne</h3>
+          <a href="porsche cayenne .html">  <img src="porsche /porsche cayenne .jpg" alt="Porsche Cayenne"></a>
+            <p>Le SUV de luxe de Porsche, avec des options hybrides et une performance étonnante.</p>
+            <ul>
+                <li>Moteur : V6 et V8, hybride disponible</li>
+                <li>Puissance : Jusqu'à 680 ch</li>
+                <li>Accélération 0-100 km/h : 3,9 sec</li>
+            </ul>
+        </div>
+
+
+        <div class="car">
+            <h3>Porsche 911 GT2 RS</h3>
+         <a href="porsche 911 GT2 RS.html">   <img src="porsche /porsche 911 GT2 RS.jpg" alt="Porsche 911 GT2 RS"></a>
+            <p>Une supercar ultraperformante, conçue pour la piste, avec une puissance phénoménale.</p>
+            <ul>
+                <li>Moteur : 6 cylindres biturbo</li>
+                <li>Puissance : 700 ch</li>
+                <li>Accélération 0-100 km/h : 2,7 sec</li>
+            </ul>
+        </div>
+
+
+        <div class="car">
+            <h3>Porsche 911 GT3 RS</h3>
+         <a href="page porsche GT3 RS.html">   <img src="porsche /porsche gt3 RS.webp" alt="Porsche 911 GT3 RS"></a>
+            <p>La version extrême de la 911, idéale pour les circuits, avec des performances de pointe.</p>
+            <ul>
+                <li>Moteur : 6 cylindres atmosphériques</li>
+                <li>Puissance : 518 ch</li>
+                <li>Accélération 0-100 km/h : 3,0 sec</li>
+            </ul>
+        </div>
+
+    </section>
+    <h2>Les Origines de Porsche</h2>
+<p>
+    Porsche a été fondée en 1931 par Ferdinand Porsche à Stuttgart, en Allemagne. Dès ses débuts, la marque s'est 
+    distinguée par son expertise en ingénierie automobile et sa capacité à concevoir des voitures innovantes et 
+    performantes. La première voiture produite par Porsche fut la Volkswagen Coccinelle, qui est rapidement devenue 
+    l'une des voitures les plus emblématiques du monde.
+</p>
+
+<div style="text-align: center;">
+    <img src="porsche /Volkswagen_Beetle_5.jpg" width="400" height="300" alt="Volkswagen Coccinelle">
+</div>
+
+<h2>Les Années 1950 et 1960 : La naissance de la Porsche 356</h2>
+<p>
+    En 1948, Porsche a lancé son premier modèle de voiture de sport, la Porsche 356. Ce modèle a marqué le début de 
+    l'histoire de Porsche en tant que constructeur de voitures de sport haut de gamme. La Porsche 356 a connu un grand 
+    succès, en particulier en raison de sa maniabilité et de sa performance exceptionnelles sur les routes et circuits.
+</p>
+
+<div style="text-align: center;">
+    <img src="porsche /porsche 356.avif" width="400" height="250" alt="Porsche 356">
+</div>
+
+<section class="tech-section">
+    <h2>Technologie et Innovation</h2>
+    <p>
+        Porsche est synonyme de performance et d'innovation. Chaque modèle est conçu avec une attention particulière aux 
+        détails techniques, garantissant des véhicules à la pointe de la technologie.
+    </p>
+    <ul>
+        <li>Performance moteur : Porsche utilise des moteurs à haute performance, y compris des moteurs à 6 cylindres et des moteurs électriques dans ses modèles récents comme la Porsche Taycan.</li>
+        <li>Châssis et suspension : Les véhicules Porsche sont équipés de systèmes de suspension adaptatifs et de châssis légers qui permettent une conduite précise et agile, idéale pour les circuits comme pour les routes ouvertes.</li>
+        <li>Technologie hybride et électrique : Porsche a lancé la Taycan, un modèle entièrement électrique, prouvant son engagement envers la durabilité tout en maintenant une performance exceptionnelle.</li>
+    </ul>
+</section>
+
+<h2>Les Modèles Récents</h2>
+<p>
+    Aujourd'hui, Porsche continue d'innover avec des modèles comme la Porsche 911, un symbole de performance, et la Porsche Taycan, une voiture électrique de luxe. Ces modèles combinent un design intemporel avec des technologies de pointe pour offrir une expérience de conduite inégalée.
+</p>
+
+<div style="text-align: center;">
+    <img src="porsche /porsche taycan .jpg" width="400" height="250" alt="Porsche Taycan">
+</div>
+
+<h2>L'Héritage de Porsche</h2>
+<p>
+    Porsche incarne l'innovation, la performance et le luxe. Avec des modèles légendaires comme la Porsche 911, la marque 
+    a su rester fidèle à ses racines tout en repoussant constamment les limites de la technologie automobile. Porsche 
+    continue d'être un symbole de passion et d'excellence pour les amateurs de voitures de sport et les passionnés 
+    d'automobile à travers le monde.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mercedes-Benz - Luxe et Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Importation des polices -->
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f4f4; /* Gris clair pour un fond élégant */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #000000; /* Noir Mercedes-Benz pour un look premium */
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-title {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            color: #A9A9A9; /* Gris clair pour un contraste moderne */
+            font-size: 3em;
+        }
+
+        .navbar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-button {
+            background-color: #A9A9A9; /* Gris clair Mercedes-Benz */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-right: 10px; /* Espacement entre les boutons */
+        }
+
+        .home-button:hover {
+            background-color: #8B8B8B; /* Gris foncé Mercedes-Benz pour l'effet hover */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Galerie des voitures */
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .car {
+            background-color: #f9f9f9; /* Fond gris clair pour un look chic */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .car h4 {
+            color: #A9A9A9; /* Gris Mercedes-Benz pour les titres */
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .car ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .car ul li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Section technologie */
+        .tech-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .tech-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-size: 1.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2em;
+            }
+
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .car {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1 class="header-title">Mercedes-Benz</h1>
+    <div class="navbar">
+        <a href="Acceuil_voiture.html" class="home-button">Retour à l'Accueil</a>
+        <a href="buggati.html" class="home-button">Bugatti</a>
+        <a href="Ferrari.html" class="home-button">Ferrari</a>
+        <a href="Rolls Royce.html" class="home-button">Rolls-Royce</a>
+        <a href="audi.html" class="home-button">Audi</a>
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2>Histoire de Mercedes-Benz</h2>
+        <p>
+            Mercedes-Benz est synonyme de luxe, de confort et de performance. Depuis plus d'un siècle, la marque allemande a su allier innovations technologiques et design intemporel.
+            Découvrez les voitures qui font la renommée de cette marque emblématique.
+        </p>
+    </section>
+
+    <section class="car-gallery">
+        <h2>Modèles Emblématiques</h2>
+
+        <!-- Modèles -->
+        <div class="car">
+            <h3>Mercedes-Benz Classe S</h3>
+            <img src="photo/mercedes-benz-s-class-wv223-teaser-pluginhybrid-3302x1858-09-2022.jpg.avif" alt="Mercedes-Benz Classe S">
+            <p>La Classe S incarne l'ultime luxe automobile, avec une technologie de pointe et un confort incomparable.</p>
+        </div>
+        <!-- Ajoutez les autres modèles ici -->
+    <!-- Mercedes-AMG G63 -->
+    <div class="car">
+        <h3>Mercedes-AMG G63</h3>
+        <img src="photo/G 63 amg.jpg" alt="Mercedes-AMG G63">
+        <p>Le G63 AMG offre une combinaison de luxe, performance et robustesse, avec un moteur V8 biturbo.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : V8 Biturbo 4.0 L</li>
+            <li>Puissance : 585 ch</li>
+            <li>Vitesse maximale : 240 km/h</li>
+            <li>Accélération 0-100 km/h : 4.5 secondes</li>
+        </ul>
+    </div>
+
+    <!-- Mercedes-AMG A45 -->
+    <div class="car">
+        <h3>Mercedes-AMG A45</h3>
+        <img src="photo/a 45 amg.jpg" alt="Mercedes-AMG A45">
+        <p>La Classe A AMG est une compacte sportive, avec des performances impressionnantes et un design agressif.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : 2.0 L 4 cylindres turbo</li>
+            <li>Puissance : 421 ch</li>
+            <li>Vitesse maximale : 270 km/h</li>
+            <li>Accélération 0-100 km/h : 3.9 secondes</li>
+        </ul>
+    </div>
+
+    <!-- Mercedes-Benz E-Class -->
+    <div class="car">
+        <h3>Mercedes-Benz E-Class</h3>
+        <img src="photo/mercedes-benz-e-class-driving-720x405px.jpg" alt="Mercedes-Benz E-Class">
+        <p>Un modèle de confort et d'élégance, la Classe E est conçue pour offrir une expérience de conduite haut de gamme.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : 2.0 L ou 3.0 L V6</li>
+            <li>Puissance : Jusqu'à 367 ch</li>
+            <li>Vitesse maximale : 250 km/h</li>
+            <li>Accélération 0-100 km/h : 5.4 secondes</li>
+        </ul>
+    </div>
+
+    <!-- Mercedes-AMG GT -->
+    <div class="car">
+        <h3>Mercedes-AMG GT</h3>
+        <img src="photo/amg gt.webp" alt="Mercedes-AMG GT">
+        <p>Un super-sportif qui combine performances extrêmes et design élégant, le AMG GT est l'une des icônes de la marque.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : V8 Biturbo 4.0 L</li>
+            <li>Puissance : Jusqu'à 577 ch</li>
+            <li>Vitesse maximale : 318 km/h</li>
+            <li>Accélération 0-100 km/h : 3.6 secondes</li>
+        </ul>
+    </div>
+
+    <!-- Mercedes-Benz CLS -->
+    <div class="car">
+        <h3>Mercedes-Benz CLS</h3>
+        <img src="photo/mercedes cls.jpg" alt="Mercedes-Benz CLS">
+        <p>La CLS incarne le luxe sportif avec un design audacieux et des performances impressionnantes.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : 3.0 L V6 ou V8</li>
+            <li>Puissance : Jusqu'à 429 ch</li>
+            <li>Vitesse maximale : 250 km/h</li>
+            <li>Accélération 0-100 km/h : 4.0 secondes</li>
+        </ul>
+    </div>
+
+    <!-- Mercedes-Benz GLC -->
+    <div class="car">
+        <h3>Mercedes-Benz GLC</h3>
+        <img src="photo/2023-mercedes-glc-coupe.webp" alt="Mercedes-Benz GLC">
+        <p>Le GLC allie confort et performance dans un SUV élégant et moderne.</p>
+        <h4>Caractéristiques</h4>
+        <ul>
+            <li>Moteur : 2.0 L 4 cylindres turbo</li>
+            <li>Puissance : 255 ch</li>
+            <li>Vitesse maximale : 240 km/h</li>
+            <li>Accélération 0-100 km/h : 6.2 secondes</li>
+        </ul>
+    </div>
+
+</section>
+
+<section class="tech-section">
+    <h2>Technologies Mercedes-Benz</h2>
+    <p>
+        Mercedes-Benz est à la pointe de l'innovation avec des technologies telles que le MBUX, la conduite autonome, et des moteurs hybrides.
+    </p>
+    <ul>
+        <li>MBUX : Système multimédia intuitif avec intelligence artificielle</li>
+        <li>Drive Pilot : Système de conduite semi-autonome</li>
+        <li>Hybrid 4MATIC : Moteurs hybrides pour plus d'efficacité et moins d'émissions</li>
+    </ul>
+</section>
+</main>
+
+</body>
+
+</html>

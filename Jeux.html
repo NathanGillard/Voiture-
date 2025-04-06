@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinette - Voitures</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .game-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .options button {
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            transition: all 0.3s ease;
+        }
+
+        .options button:hover {
+            background-color: #d4f1f9;
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .correct-answer {
+            font-size: 1.1em;
+            color: #007bff;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        .play-again {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .play-again:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+       
+
+        .score {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="game-container">
+        <h1>Jeu de Devinette - Voitures</h1>
+        <div class="question">Devinez la marque de voiture :</div>
+        <div class="options"></div>
+        <div class="result"></div>
+        <div class="correct-answer"></div>
+        <div class="score">Score : <span id="score">0</span></div>
+        <button class="play-again">Rejouer</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Quelle marque de voiture a été fondée en 1922 et a son siège à Maranello, Italie ?",
+                options: [
+                    { text: "Lamborghini", correct: false },
+                    { text: "Ferrari", correct: true },
+                    { text: "Maserati", correct: false },
+                    { text: "Pagani", correct: false }
+                ],
+                correctAnswer: "Ferrari"
+            },
+            {
+                question: "Quelle marque a produit le premier moteur V12 à refroidissement par air ?",
+                options: [
+                    { text: "Porsche", correct: true },
+                    { text: "Audi", correct: false },
+                    { text: "Peugeot", correct: false },
+                    { text: "BMW", correct: false }
+                ],
+                correctAnswer: "Porsche"
+            },
+            {
+                question: "Quel constructeur est à l'origine de la première voiture hybride de série au monde ?",
+                options: [
+                    { text: "Honda", correct: false },
+                    { text: "Toyota", correct: true },
+                    { text: "Ford", correct: false },
+                    { text: "Tesla", correct: false }
+                ],
+                correctAnswer: "Toyota"
+            },
+            {
+                question: "Quelle marque de voitures est connue pour ses moteurs boxer ?",
+                options: [
+                    { text: "BMW", correct: false },
+                    { text: "Subaru", correct: true },
+                    { text: "Audi", correct: false },
+                    { text: "Fiat", correct: false }
+                ],
+                correctAnswer: "Subaru"
+            },
+            {
+                question: "Quelle marque automobile a conçu le modèle 911, emblématique de son design ?",
+                options: [
+                    { text: "Mercedes-Benz", correct: false },
+                    { text: "Porsche", correct: true },
+                    { text: "Ferrari", correct: false },
+                    { text: "Aston Martin", correct: false }
+                ],
+                correctAnswer: "Porsche"
+            },
+            {
+                question: "Quel constructeur automobile a produit la voiture de sport Veyron ?",
+                options: [
+                    { text: "McLaren", correct: false },
+                    { text: "Bugatti", correct: true },
+                    { text: "Lamborghini", correct: false },
+                    { text: "Koenigsegg", correct: false }
+                ],
+                correctAnswer: "Bugatti"
+            },
+            {
+                question: "Quelle marque de voiture est connue pour ses modèles Mustang et F-150 ?",
+                options: [
+                    { text: "Chevrolet", correct: false },
+                    { text: "Ford", correct: true },
+                    { text: "Dodge", correct: false },
+                    { text: "GMC", correct: false }
+                ],
+                correctAnswer: "Ford"
+            },
+            {
+                question: "Quelle marque de voiture est associée au slogan 'La joie de conduire' ?",
+                options: [
+                    { text: "BMW", correct: true },
+                    { text: "Audi", correct: false },
+                    { text: "Mercedes-Benz", correct: false },
+                    { text: "Volkswagen", correct: false }
+                ],
+                correctAnswer: "BMW"
+            },
+            {
+                question: "Quelle marque de voiture a introduit le système de traction intégrale Quattro ?",
+                options: [
+                    { text: "Audi", correct: true },
+                    { text: "Subaru", correct: false },
+                    { text: "Volvo", correct: false },
+                    { text: "Jeep", correct: false }
+                ],
+                correctAnswer: "Audi"
+            },
+            {
+                question: "Quelle marque de voiture est connue pour ses modèles Corvette et Camaro ?",
+                options: [
+                    { text: "Ford", correct: false },
+                    { text: "Chevrolet", correct: true },
+                    { text: "Dodge", correct: false },
+                    { text: "Pontiac", correct: false }
+                ],
+                correctAnswer: "Chevrolet"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        const questionElement = document.querySelector('.question');
+        const optionsContainer = document.querySelector('.options');
+        const resultElement = document.querySelector('.result');
+        const correctAnswerElement = document.querySelector('.correct-answer');
+        const scoreElement = document.getElementById('score');
+        const playAgainBtn = document.querySelector('.play-again');
+        let remainingQuestions = [...questions]; // Copie des questions pour éviter les répétitions
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function loadQuestion() {
+            if (remainingQuestions.length === 0) {
+                questionElement.textContent = "Félicitations ! Vous avez répondu à toutes les questions.";
+                optionsContainer.innerHTML = '';
+                playAgainBtn.style.display = 'none';
+                return;
+            }
+
+            currentQuestionIndex = Math.floor(Math.random() * remainingQuestions.length);
+            const currentQuestion = remainingQuestions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsContainer.innerHTML = '';
+
+            shuffleArray(currentQuestion.options); // Mélanger les options
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option.text;
+                button.classList.add('option');
+                button.addEventListener('click', () => handleAnswer(option.correct, currentQuestion.correctAnswer));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function handleAnswer(isCorrect, correctAnswer) {
+            const options = optionsContainer.querySelectorAll('.option');
+            options.forEach(option => {
+                option.disabled = true;
+                if (option.textContent === correctAnswer) {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            if (isCorrect) {
+                resultElement.textContent = 'Bravo ! Bonne réponse !';
+                resultElement.style.color = 'green';
+                score++;
+            } else {
+                resultElement.textContent = 'Dommage ! Mauvaise réponse.';
+                resultElement.style.color = 'red';
+                correctAnswerElement.textContent = `La bonne réponse était : ${correctAnswer}`;
+                correctAnswerElement.style.color = '#007bff';
+                score = 0; // Réinitialiser le score à 0 en cas de mauvaise réponse
+            }
+
+            scoreElement.textContent = score;
+            playAgainBtn.style.display = 'inline-block';
+
+            // Retirer la question posée de la liste des questions restantes
+            remainingQuestions.splice(currentQuestionIndex, 1);
+        }
+
+        playAgainBtn.addEventListener('click', () => {
+            resultElement.textContent = '';
+            correctAnswerElement.textContent = '';
+            playAgainBtn.style.display = 'none';
+            loadQuestion();
+        });
+
+        shuffleArray(remainingQuestions); // Mélanger les questions au début
+        loadQuestion();
+    </script>
+</body>
+</html>

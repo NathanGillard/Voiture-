@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Explorez l'univers Bugatti, une marque de voitures de luxe emblématique alliant performance et design. Découvrez les modèles iconiques comme la Veyron, la Chiron et plus encore.">
+    <title>Bugatti - La Légende de l'Automobile</title>
+    <style>
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            color: #1d5db6; 
+            line-height: 1.6;
+        }
+
+        
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 3px solid #1d5db6;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #1d5db6;
+        }
+
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            background-color: transparent;
+            border: 2px solid #1d5db6;
+            color: #1d5db6;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #1d5db6;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #111;
+            border-radius: 10px;
+            border: 2px solid #1d5db6;
+            color: #fff;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #1d5db6;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .car {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .car img:hover {
+            opacity: 0.8;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #1d5db6;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .car h4 {
+            color: #ff6600;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .car ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px 0 0;
+        }
+
+        .car ul li {
+            margin-bottom: 5px;
+        }
+
+        
+        footer {
+            background-color: #111;
+            color: #1d5db6;
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid #1d5db6;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Bugatti   <img src="Buggati/Bugatti_logo.svg.png" width="100"  height="70"  alt="Logo Buggati"> </h1> 
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Histoire de Bugatti</h2>
+        <p>
+            Bugatti est une marque de voitures de luxe française, fondée en 1909 par l'ingénieur italien Eugène Bugatti à Molsheim, en Alsace. Bugatti est renommée pour ses voitures exceptionnelles qui combinent puissance, élégance et performance.
+        </p>
+    </section>
+
+    <h2>Les Voitures Emblématiques de Bugatti</h2>
+
+    <section class="car-gallery">
+        <div class="car">
+            <h3>Bugatti Veyron 16.4</h3>
+            <a href="page buggati veyron .html"><img src="Buggati/Bugatti_Veyron_16.4_–_Frontansicht_(1),_5._April_2012,_Düsseldorf.jpg" alt="Bugatti Veyron"></a>
+            <p>La Bugatti Veyron, lancée en 2005, est l'une des voitures les plus rapides et les plus puissantes de tous les temps.</p>
+            <h4>Caractéristiques</h4>
+            <ul>
+                <li>Moteur : W16 8,0 L</li>
+                <li>Puissance : 1001 ch</li>
+                <li>Vitesse maximale : 407 km/h</li>
+                <li>Poids : 1 888 kg</li>
+                <li>Production : 450 exemplaires</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Bugatti Chiron</h3>
+            <a href="page buggati chiron.html">  <img src="Buggati/buggati chiron.jpg" alt="Bugatti Chiron"></a>
+            <p>La Bugatti Chiron, lancée en 2016, est la remplaçante de la Veyron, avec une puissance de 1500 ch et une vitesse maximale de 420 km/h.</p>
+            <h4>Caractéristiques</h4>
+            <ul>
+                <li>Moteur : W16 8,0 L</li>
+                <li>Puissance : 1500 ch</li>
+                <li>Vitesse maximale : 420 km/h</li>
+                <li>Accélération 0-100 km/h : 2,5 secondes</li>
+                <li>Production : 500 exemplaires</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Bugatti Divo</h3>
+            <a href="page buggati divo.html"><img src="Buggati/Bugatti_Divo,_GIMS_2019,_Le_Grand-Saconnex_(GIMS0029).jpg" alt="Bugatti Divo"></a>
+            <p>La Bugatti Divo, produite à seulement 40 exemplaires, est une voiture ultra-exclusive qui allie performance extrême et design épuré.</p>
+            <h4>Caractéristiques</h4>
+            <ul>
+                <li>Moteur : W16 8,0 L</li>
+                <li>Puissance : 1500 ch</li>
+                <li>Vitesse maximale : 380 km/h</li>
+                <li>Accélération 0-100 km/h : 2,4 secondes</li>
+                <li>Production : 40 exemplaires</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Bugatti Centodieci</h3>
+            <a href="page buggati centodieci .html"><img src="Buggati/2022_Bugatti_Centodieci_in_Grigio_Chiaro,_front_left.jpg" alt="Bugatti Centodieci"></a>
+            <p>La Bugatti Centodieci, inspirée de la légendaire Bugatti EB110, rend hommage aux 110 ans de la marque et affiche une puissance de 1600 ch.</p>
+            <h4>Caractéristiques</h4>
+            <ul>
+                <li>Moteur : W16 8,0 L</li>
+                <li>Puissance : 1600 ch</li>
+                <li>Vitesse maximale : 380 km/h</li>
+                <li>Accélération 0-100 km/h : 2,4 secondes</li>
+                <li>Production : 10 exemplaires</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Bugatti Veyron Super Sport</h3>
+            <a href=" Bugatti Veyron Super Sport.html"><img src="Buggati/Bugatti Veyron 16.4.jpeg" alt="Bugatti Veyron Super Sport"></a>
+            <p>La Veyron Super Sport est une version améliorée de la Veyron, avec 1200 ch et une vitesse maximale de 431 km/h, un véritable chef-d'œuvre technologique.</p>
+            <h4>Caractéristiques</h4>
+            <ul>
+                <li>Moteur : W16 8,0 L</li>
+                <li>Puissance : 1200 ch</li>
+                <li>Vitesse maximale : 431 km/h</li>
+                <li>Poids : 1 950 kg</li>
+                <li>Production : 30 exemplaires</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tech-section">
+        <h2>Technologie et Innovation</h2>
+        <p>
+            Bugatti se distingue par ses avancées technologiques exceptionnelles, combinant performance, aérodynamisme et matériaux de pointe pour créer des voitures parmi les plus rapides du monde.
+        </p>
+        <ul>
+            <li>Technologie moteur : Bugatti utilise un moteur W16 révolutionnaire qui permet des performances inégalées en termes de vitesse et d'accélération.</li>
+            <li>Système de suspension adaptative : Les voitures Bugatti sont dotées de systèmes de suspension qui s'adaptent en temps réel aux conditions de conduite, assurant une stabilité maximale.</li>
+            <li>Matériaux ultra-légers : Bugatti utilise des matériaux comme le carbone et l'aluminium pour minimiser le poids de ses voitures tout en garantissant leur robustesse et leur sécurité.</li>
+        </ul>
+    
+        <h2>Les Origines de Bugatti</h2>
+        <p>
+            Fondée en 1909 par Ettore Bugatti à Molsheim, en Alsace, Bugatti est une marque emblématique qui symbolise 
+            l'innovation, l'artisanat et l'excellence technique. Ettore Bugatti, connu pour son génie créatif, a conçu des voitures 
+            non seulement performantes, mais aussi d'une beauté sculpturale, faisant de Bugatti une icône de l'automobile.
+        </p>
+    
+        <div style="text-align: center;">
+            <img src="Buggati/bugatti-type_35-1928-1280-01-547x410.jpg" width="400" height="300" alt="Bugatti Type 35">
+        </div>
+    
+        <h2>L'Âge d'Or : Les Années 1920 et 1930</h2>
+        <p>
+            Les années 1920 et 1930 marquent l'âge d'or de Bugatti avec des modèles légendaires comme la Bugatti Type 35, 
+            une voiture de course qui a remporté plus de 2 000 victoires, et la Bugatti Royale, une voiture de luxe réservée 
+            à l'élite mondiale. Ces véhicules étaient non seulement des chefs-d'œuvre d'ingénierie, mais aussi des œuvres d'art.
+        </p>
+    
+        <div style="text-align: center;">
+            <img src="Buggati/Rétromobile_2015_-_Bugatti_Royale_Coupé_Napoléon_-_1929_-_002.jpg" width="400" height="300" alt="Bugatti Royale">
+        </div>
+    
+        <section class="tech-section">
+            <h2>Technologie et Innovation</h2>
+            <p>
+                Bugatti se distingue par ses avancées technologiques exceptionnelles, combinant performance, aérodynamisme et matériaux de pointe pour créer des voitures parmi les plus rapides du monde.
+            </p>
+            <ul>
+                <li>Technologie moteur : Bugatti utilise un moteur W16 révolutionnaire qui permet des performances inégalées en termes de vitesse et d'accélération.</li>
+                <li>Système de suspension adaptative : Les voitures Bugatti sont dotées de systèmes de suspension qui s'adaptent en temps réel aux conditions de conduite, assurant une stabilité maximale.</li>
+                <li>Matériaux ultra-légers : Bugatti utilise des matériaux comme le carbone et l'aluminium pour minimiser le poids de ses voitures tout en garantissant leur robustesse et leur sécurité.</li>
+            </ul>
+        </section>
+    
+        <h2>Les Modèles Récents</h2>
+        <p>
+            Aujourd'hui, Bugatti continue de repousser les limites avec des modèles comme la Bugatti Chiron, capable d'atteindre une vitesse de pointe de 490 km/h, et la Bugatti Divo, conçue pour offrir une expérience de conduite inégalée sur les routes sinueuses.
+        </p>
+        <div style="text-align: center;">
+            <img src="Buggati/buggati chiron.jpg" width="400" height="300" alt="Bugatti Chiron">
+        </div>
+    
+        <h2>L'Héritage de Bugatti</h2>
+        <p>
+            Bugatti est bien plus qu'une marque automobile. C'est une philosophie, une quête incessante de perfection et de beauté. 
+            Les voitures Bugatti incarnent l'art, la performance et le luxe, continuant à fasciner les amateurs d'automobiles 
+            du monde entier.
+        </p>
+    
+    </main>
+    
+</main>
+
+<footer>
+    <p>Nathan Gillard</p>
+</footer>
+</body>
+
+</html>

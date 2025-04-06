@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du Pendu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffcc00;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .warning {
+            background-color: #f44336;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .game-container {
+            background-color: #444;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+            display: none; /* Masquer la zone de jeu jusqu'à ce que l'utilisateur accepte les règles */
+        }
+
+        .reset {
+            background-color: #5bc0de;
+            padding: 15px 30px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.8em;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .reset:hover {
+            background-color: #31b0d5;
+        }
+
+        .word {
+            font-size: 2.5em;
+            letter-spacing: 10px;
+            margin: 30px 0;
+            color: #fff;
+            white-space: nowrap; /* Garder le mot sur une seule ligne */
+            overflow-x: auto; /* Ajouter un défilement horizontal si nécessaire */
+        }
+
+        .letters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Espacement entre les boutons */
+        }
+
+        .letters button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            background-color: #666;
+            color: #fff;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .letters button:hover {
+            background-color: #31b0d5;
+            transform: scale(1.1);
+        }
+
+        .letters button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .hangman {
+            font-size: 2.5em;
+            margin-top: 30px;
+            white-space: pre-wrap;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .wrong-letter {
+            color: red;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #31b0d5;
+        }
+
+        #startGameBtn {
+            font-size: 2em;
+            padding: 20px 40px;
+            border-radius: 10px;
+            color: #fff;
+            background-color: #ecf3ed;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #startGameBtn:hover {
+            background-color: #11d711;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="back-btn" id="backButton"><a href="Acceuil_voiture.html" style="color: white;">Accueil</a></button>
+    
+    <h1>Jeu du Pendu</h1>
+
+    <div class="warning" id="warningMessage">
+        <p><strong><h2>Important :</h2></strong> Avant de commencer, merci de lire les règles du jeu. Cliquez sur "OK" pour commencer le jeu. 
+         <br> Vous avez que 6 chances pour trouver le bon mot.</p>
+        <button id="startGameBtn">OK</button>
+    </div>
+
+    <div class="game-container">
+        <div class="word" id="wordDisplay">_ _ _ _ _</div>
+        <div class="letters-container" id="letterButtons"></div>
+        <div class="wrong-letter" id="wrongLetters"></div>
+        <div class="hangman" id="hangmanDisplay"></div>
+        <div class="message" id="message"></div>
+        <button class="reset" id="resetButton" style="display: none;">Recommencer</button>
+    </div>
+
+    <script>
+        const startGameBtn = document.getElementById('startGameBtn');
+        const warningMessage = document.getElementById('warningMessage');
+        const gameContainer = document.querySelector('.game-container');
+        const words = ['OPEL', 'FERRARI', 'PORSCHE', 'BUGATTI', 'RENAULT', 'ROLLS ROYCE', 'LAMBORGHINI', 'MASERATI', 'MCLAREN', 'AUDI', 'MERCEDES', 'BMW', 'TOYOTA', 'PEUGEOT', 'FORD', 'CHEVROLET', 'VOLKSWAGEN', 'JAGUAR', 'BENTLEY', 'ASTON MARTIN', 'CADILLAC', 'SUBARU', 'HONDA', 'NISSAN', 'KIA', 'HYUNDAI', 'TESLA', 'ALFA ROMEO', 'CITROEN', 'LAND ROVER', 'VOLVO', 'FIAT', 'CHRYSLER', 'DODGE', 'JEEP', 'INFINITI', 'LEXUS', 'SAAB', 'MITSUBISHI', 'BUICK', 'MINI', 'SMART'];
+
+        const maxAttempts = 6;
+        let selectedWord = '';
+        let displayedWord = '';
+        let wrongLetters = [];
+        let attemptsLeft = maxAttempts;
+
+        const wordDisplay = document.getElementById('wordDisplay');
+        const hangmanDisplay = document.getElementById('hangmanDisplay');
+        const letterButtons = document.getElementById('letterButtons');
+        const message = document.getElementById('message');
+        const wrongLettersDisplay = document.getElementById('wrongLetters');
+        const resetButton = document.getElementById('resetButton');
+        const backButton = document.getElementById('backButton');
+
+        startGameBtn.addEventListener('click', () => {
+            warningMessage.style.display = 'none';
+            gameContainer.style.display = 'block';
+            startGame();
+        });
+
+        function startGame() {
+            selectedWord = words[Math.floor(Math.random() * words.length)];
+            displayedWord = '_ '.repeat(selectedWord.length).trim();
+            wordDisplay.textContent = displayedWord;
+            wrongLetters = [];
+            attemptsLeft = maxAttempts;
+            hangmanDisplay.textContent = '';
+            wrongLettersDisplay.textContent = '';
+            message.textContent = '';
+            resetButton.style.display = 'none';
+            createLetterButtons();
+        }
+
+        function createLetterButtons() {
+            letterButtons.innerHTML = '';
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+            alphabet.forEach(letter => {
+                const button = document.createElement('button');
+                button.textContent = letter;
+                button.style.fontSize = '1.5em';
+                button.onclick = () => handleLetterClick(letter);
+                letterButtons.appendChild(button);
+            });
+        }
+
+        function handleLetterClick(letter) {
+            const button = [...letterButtons.children].find(btn => btn.textContent === letter);
+            button.disabled = true;
+
+            if (selectedWord.includes(letter)) {
+                updateWordDisplay(letter);
+            } else {
+                wrongLetters.push(letter);
+                attemptsLeft--;
+                updateHangman();
+                updateWrongLettersDisplay();
+            }
+
+            checkGameStatus();
+        }
+
+        function updateWordDisplay(letter) {
+            let updatedWord = '';
+            for (let i = 0; i < selectedWord.length; i++) {
+                if (selectedWord[i] === letter) {
+                    updatedWord += letter + ' ';
+                } else {
+                    updatedWord += displayedWord[i * 2] + ' ';
+                }
+            }
+            displayedWord = updatedWord.trim();
+            wordDisplay.textContent = displayedWord;
+        }
+
+        function updateHangman() {
+            const hangmanStages = [
+                '  _____\n  |   |\n      |\n      |\n      |\n      |',
+                '  _____\n  |   |\n  O   |\n      |\n      |',
+                '  _____\n  |   |\n  O   |\n  |   |\n      |',
+                '  _____\n  |   |\n  O   |\n /|   |\n      |',
+                '  _____\n  |   |\n  O   |\n /|\\  |\n      |',
+                '  _____\n  |   |\n  O   |\n /|\\  |\n /    |',
+                '  _____\n  |   |\n  O   |\n /|\\  |\n / \\  |'
+            ];
+
+            hangmanDisplay.textContent = hangmanStages[maxAttempts - attemptsLeft];
+        }
+
+        function updateWrongLettersDisplay() {
+            wrongLettersDisplay.textContent = `Lettres incorrectes : ${wrongLetters.join(', ')}`;
+        }
+
+        function checkGameStatus() {
+            if (displayedWord === selectedWord) {
+                message.textContent = 'Félicitations, vous avez gagné!';
+                resetButton.style.display = 'block';
+            } else if (attemptsLeft === 0) {
+                message.textContent = `Dommage! Le mot était: ${selectedWord}`;
+                resetButton.style.display = 'block';
+            }
+        }
+
+        resetButton.onclick = startGame;
+
+        backButton.onclick = function() {
+            window.location.reload();
+        };
+
+        startGame();
+    </script>
+</body>
+</html>

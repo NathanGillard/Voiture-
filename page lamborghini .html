@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lamborghini - Puissance et Élégance</title>
+    <style>
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000; 
+            color: #fdd835; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+       
+        header {
+            background-color: #111; 
+            color: #fdd835;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 3px solid #fdd835;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+       
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            background-color: transparent;
+            border: 2px solid #fdd835;
+            color: #fdd835;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #fdd835;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+       
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #111;
+            border-radius: 10px;
+            border: 2px solid #fdd835;
+            color: #fff;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #fdd835;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+       
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .car {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(253, 216, 53, 0.5);
+        }
+
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .car img:hover {
+            opacity: 0.8;
+        }
+
+        .car h3 {
+            font-size: 1.8em;
+            color: #fdd835;
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+       
+        footer {
+            background-color: #111;
+            color: #fdd835;
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid #fdd835;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Lamborghini   <img src="Lamborghini/Lamborghini-Logo.svg.png" width="70"  height="70"  alt="Logo Lamborghini"> </h1>
+    <nav>
+        <ul>
+            <li><a href="Acceuil_voiture.html">Acceuil</a></li>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Les Voitures Lamborghini</h2>
+        <p>
+            Lamborghini incarne le luxe, la puissance brute et un design avant-gardiste. Chaque modèle reflète une philosophie audacieuse et une passion inébranlable pour l'excellence.
+        </p>
+    </section>
+
+    <h2>Modèles Emblématiques</h2>
+    <section class="car-gallery">
+        <div class="car">
+            <h3>Aventador</h3>
+         <a href="Page Aventador.html">   <img src="Lamborghini/lamborghini-aventador.jpg" alt="Lamborghini Aventador"></a>
+            <p>Un chef-d'œuvre V12, combinant puissance et agilité.</p>
+            <ul>
+                <li>Moteur : V12 atmosphérique</li>
+                <li>Puissance : 770 ch</li>
+                <li>Accélération 0-100 km/h : 2,8 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Huracán</h3>
+         <a href="Page huracan .html"> <img src="Lamborghini/lamborghini-huracan-evo-lp-640-4-144046731.jpg" alt="Lamborghini Huracán"></a>
+            <p>Une fusion parfaite de technologie et de design spectaculaire.</p>
+            <ul>
+                <li>Moteur : V10 atmosphérique</li>
+                <li>Puissance : 640 ch</li>
+                <li>Accélération 0-100 km/h : 2,9 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Urus</h3>
+          <a href="Page Urus.html">  <img src="Lamborghini/lamborghini-urus-by-g-power.jpg" alt="Lamborghini Urus"></a>
+            <p>Le premier SUV de Lamborghini, alliant luxe et performance.</p>
+            <ul>
+                <li>Moteur : V8 biturbo</li>
+                <li>Puissance : 650 ch</li>
+                <li>Accélération 0-100 km/h : 3,6 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Sián FKP 37</h3>
+          <a href="page Sian fkp 37.html">  <img src="Lamborghini/Lamborghini_Sian_at_IAA_2019_IMG_0332.jpg" alt="Lamborghini Sián FKP 37"></a>
+            <p>Une supercar hybride révolutionnaire.</p>
+            <ul>
+                <li>Moteur : V12 hybride</li>
+                <li>Puissance : 819 ch</li>
+                <li>Accélération 0-100 km/h : 2,8 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Veneno</h3>
+          <a href="page Veneno.html">  <img src="Lamborghini/2015-lamborghini-veneno-roadster.webp" alt="Lamborghini Veneno"></a>
+            <p>Un design audacieux pour une performance ultime.</p>
+            <ul>
+                <li>Moteur : V12 atmosphérique</li>
+                <li>Puissance : 750 ch</li>
+                <li>Accélération 0-100 km/h : 2,9 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Countach LPI 800-4</h3>
+         <a href="page countach.html">   <img src="Lamborghini/countach.webp" alt="Lamborghini Countach LPI 800-4"></a> 
+            <p>Une icône légendaire revisitée pour le futur.</p>
+            <ul>
+                <li>Moteur : V12 hybride</li>
+                <li>Puissance : 814 ch</li>
+                <li>Accélération 0-100 km/h : 2,8 sec</li>
+            </ul>
+        </div>
+
+        <div class="car">
+            <h3>Gallardo</h3>
+         <a href="page gallardo.html">   <img src="Lamborghini/gallardo.jpg" alt="Lamborghini Gallardo"></a>
+            <p>Le modèle le plus vendu, symbole de succès et de design intemporel.</p>
+            <ul>
+                <li>Moteur : V10 atmosphérique</li>
+                <li>Puissance : 570 ch</li>
+                <li>Accélération 0-100 km/h : 3,4 sec</li>
+            </ul>
+        </div>
+    </section>
+
+    <h2>Les Origines de Lamborghini</h2>
+    <p>
+        Lamborghini a été fondée en 1963 par Ferruccio Lamborghini, un homme d'affaires italien ambitieux, qui a voulu créer des voitures de sport capables de rivaliser avec Ferrari. L'objectif de Lamborghini était de concevoir des voitures qui alliaient performance, confort et design. La première voiture, la Lamborghini 350 GT, a marqué le début d'une légende.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Lamborghini/1 ere.jpg"width="400" height="280" alt="Lamborghini 350 GT">
+    </div>
+    
+    <h2>L'Âge d'Or : Les Années 1960 et 1970</h2>
+    <p>
+        Les années 1960 et 1970 ont été des décennies emblématiques pour Lamborghini, avec des modèles comme la Lamborghini Miura, une voiture de sport révolutionnaire qui a changé l'industrie automobile. La Miura est considérée comme l'une des premières supercars, avec son design innovant et ses performances exceptionnelles. Ces modèles ont contribué à solidifier la réputation de Lamborghini en tant que fabricant de voitures de luxe et de haute performance.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Lamborghini/1971_Lamborghini_Miura_P400_SV.jpg"width="400" height="250" alt="Lamborghini Miura">
+    </div>
+    
+    <section class="tech-section">
+        <h2>Technologie et Innovation</h2>
+        <p>
+            Lamborghini est à la pointe de l'innovation automobile. La marque continue de repousser les limites avec des technologies avancées et des designs audacieux.
+        </p>
+        <ul>
+            <li>Technologie moteur : Lamborghini utilise des moteurs V10 et V12 haute performance, offrant des accélérations fulgurantes et des vitesses de pointe impressionnantes.</li>
+            <li>Design aérodynamique : Les voitures Lamborghini sont conçues pour optimiser l'aérodynamisme, avec des lignes sculptées et des formes innovantes qui maximisent la vitesse et la stabilité.</li>
+            <li>Matériaux avancés : La marque utilise des matériaux légers comme la fibre de carbone et l'aluminium pour améliorer la performance tout en réduisant le poids des véhicules.</li>
+        </ul>
+    </section>
+    
+    <h2>Les Modèles Récents</h2>
+    <p>
+        Lamborghini continue de créer des voitures exceptionnelles, telles que la Lamborghini Aventador, une supercar équipée d'un moteur V12, et la Lamborghini Huracán, un modèle V10 qui offre une expérience de conduite inégalée. Ces modèles combinent performance brute et design époustouflant.
+    </p>
+    
+    <div style="text-align: center;">
+        <img src="Lamborghini/lamborghini-aventador.jpg" width="400" height="250"alt="Lamborghini Aventador">
+    </div>
+    
+    <h2>L'Héritage de Lamborghini</h2>
+    <p>
+        Lamborghini n'est pas seulement une marque, c'est un symbole de luxe, de performance et d'innovation. Depuis plus de 50 ans, Lamborghini continue de fasciner les passionnés de voitures du monde entier avec ses véhicules exceptionnels, alliant art, technologie et puissance.
+    </p>
+</main>
+
+<footer>
+    <p>Nathan Gillard.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voiture de Luxe</title>
+    <style>
+      
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        .background {
+        background: url(Audi/05ff1a57-4893-4eae-bcc1-8cbb180687a1.webp) no-repeat center center; 
+            background-size: cover; 
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            margin: auto;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+      
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: auto;
+            font-family: 'Georgia', serif;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #1a1a1a;
+            border: 2px solid #fff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #444;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a img {
+            margin-left: 5px;
+            height: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+       
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 10px 0;
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 5px 20px;
+        }
+
+        nav ul li ul li a {
+            font-size: 1em;
+        }
+
+        nav ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+      
+        nav ul li:hover > ul {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        nav ul li ul li:hover > ul {
+            display: block;
+            animation: slideRight 0.3s ease-out;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .content h1 {
+                font-size: 3em;
+            }
+
+            .content p {
+                font-size: 1.2em;
+            }
+
+            button {
+                padding: 12px 25px;
+            }
+        }
+
+        /* Zoom lent du background (optionnel, à combiner avec JS) */
+#background {
+    transition: background-image 1s ease;
+    animation: zoomBg 20s infinite alternate ease-in-out;
+}
+
+@keyframes zoomBg {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Bouton pulse */
+button {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Glow du titre */
+#title {
+    animation: glow 3s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ccc;
+    }
+    50% {
+        text-shadow: 0 0 15px #fff, 0 0 25px #999;
+    }
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ccc;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Nathan.Gillard.html">CV</a></li>
+            <li>
+                <a href="#">Models</a>
+                <ul>
+                    <li>
+                        <a href="#">Italy <span>🇮🇹</span></a>
+                        <ul>
+                            <li><a href="Ferrari.html">Ferrari</a></li>
+                            <li><a href="page lamborghini .html">Lamborghini</a></li>
+                            <li><a href="page Maserati.html">Maserati</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">German <span>🇩🇪</span></a>
+                        <ul>
+                            <li><a href="audi.html">Audi</a></li>
+                            <li><a href="Mercedes.html">Mercedes</a></li>
+                            <li><a href="page Porsche.html">Porsche</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">UK <span>🇬🇧</span></a>
+                        <ul>
+                            <li><a href="Rolls Royce.html">Rolls-Royce</a></li>
+                            <li><a href="Mclaren.html">McLaren</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">French <span>🇫🇷</span></a>
+                        <ul>
+                            <li><a href="buggati.html">Buggati</a></li>
+                            <li><a href="Alpine.html">Alpine</a></li>
+                            <li><a href="Renault.html">Renault</a></li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="#">USA <span>🇺🇸</span></a>
+                        <ul>
+                            <li><a href="Dodge.html">Dodge</a></li>
+                            <li><a href="chevrolet.html">Chevrolet</a></li>
+                            <li><a href="ford.html">Ford</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Games</a>
+                <ul>
+                    <li><a href="Jeux.html">Games1</a></li>
+                    <li><a href="jeux2.html">Games2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="background">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Voiture de luxe</h1>
+            <p>Apprenez plus sur les voitures !!!</p>
+            <a href="https://www.autoencyclopedie.com"><button onclick="learnMore()">Apprendre plus</button></a>
+        </div>
+    </div>
+    <script>
+        // Apparition animée du texte avec fade + slide
+        window.addEventListener('load', () => {
+            const title = document.getElementById('title');
+            const subtitle = document.getElementById('subtitle');
+            const button = document.querySelector('button');
+    
+            title.style.opacity = 0;
+            title.style.transform = "translateY(-30px)";
+            subtitle.style.opacity = 0;
+            subtitle.style.transform = "translateY(30px)";
+            button.style.opacity = 0;
+    
+            setTimeout(() => {
+                title.style.transition = 'opacity 1.5s ease, transform 1s ease';
+                title.style.opacity = 1;
+                title.style.transform = "translateY(0)";
+            }, 300);
+    
+            setTimeout(() => {
+                subtitle.style.transition = 'opacity 1.5s ease, transform 1s ease';
+                subtitle.style.opacity = 1;
+                subtitle.style.transform = "translateY(0)";
+            }, 800);
+    
+            setTimeout(() => {
+                button.style.transition = 'opacity 1.5s ease';
+                button.style.opacity = 1;
+            }, 1300);
+        });
+    
+        // Changement automatique du fond avec effet de fondu + zoom
+        const backgrounds = [
+            "Audi/05ff1a57-4893-4eae-bcc1-8cbb180687a1.webp",
+            "Audi/audi q7.jpeg",
+            "Audi/image3.webp"
+        ];
+        let current = 0;
+        const bg = document.getElementById('background');
+    
+        setInterval(() => {
+            current = (current + 1) % backgrounds.length;
+    
+            // Appliquer un fondu
+            bg.style.transition = "opacity 1s ease";
+            bg.style.opacity = 0.3;
+    
+            setTimeout(() => {
+                bg.style.backgroundImage = `url(${backgrounds[current]})`;
+                bg.style.opacity = 1;
+            }, 1000);
+        }, 10000);
+    
+        // Heure en direct
+        setInterval(() => {
+            const now = new Date(06/04/25);
+            const time = now.toLocaleTimeString();
+            document.getElementById("subtitle").innerText = "Apprenez plus sur les voitures !!! | Heure : " + time;
+        }, 1000);
+    </script>
+    
+    
+
+</body>
+</html>
+

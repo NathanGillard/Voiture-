@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari Dino 246 GT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #cc0000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: headerFadeIn 2s ease-in-out;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #cc0000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-button a:hover {
+            background-color: #ff0000;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+            animation: containerSlideUp 1.5s ease-out;
+        }
+        h1, h2 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h2 {
+            margin-top: 20px;
+            border-bottom: 2px solid #cc0000;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        .specs {
+            margin-top: 20px;
+        }
+        .specs ul {
+            list-style: none;
+            padding: 0;
+        }
+        .specs ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333333;
+            border-left: 4px solid #cc0000;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .specs ul li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        @keyframes headerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes containerSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #1a1a1a;
+            color: #cccccc;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="Ferrari.html">Retour à Ferrari</a>
+    </div>
+    <header>
+        Ferrari Dino 246 GT
+    </header>
+    <div class="container">
+        <h2>Présentation</h2>
+        <p>La Ferrari Dino 246 GT, produite entre 1968 et 1974, est une icône du design automobile. Elle a été nommée en hommage à Alfredo "Dino" Ferrari, fils d'Enzo Ferrari. Ce modèle a marqué une étape importante dans l'histoire de Ferrari avec son moteur V6.</p>
+
+        <h2>Fiche technique</h2>
+        <div class="specs">
+            <ul>
+                <li><strong>Moteur :</strong> V6, 2.4 litres</li>
+                <li><strong>Puissance :</strong> 195 chevaux</li>
+                <li><strong>Vitesse maximale :</strong> 235 km/h</li>
+                <li><strong>0-100 km/h :</strong> Environ 7 secondes</li>
+                <li><strong>Production :</strong> Environ 3,761 exemplaires</li>
+                <li><strong>Poids :</strong> 1080 kg</li>
+            </ul>
+        </div>
+
+        <h2>Vidéo</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/upqqDx_OYCQ?si=nWdGjV2vkDspbLTX&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Ferrari Enthusiasts - Tous droits réservés
+    </footer>
+</body>
+</html>
